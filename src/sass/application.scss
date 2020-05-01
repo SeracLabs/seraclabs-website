@@ -1,6 +1,47 @@
-$primary: #ff7043;
+@import "node_modules/bulma/sass/utilities/initial-variables";
+
+$radius: 0px;
+
+$primary: #000080; // #5271ff + #ff1616
 @import "node_modules/bulma/bulma";
 
-.card{
-	height: 100%;
+body {
+	margin: 0;
+	font-family: "Open Sans", sans-serif;
+  }
+  .title,
+  .subtitle {
+	font-family: "Raleway", sans-serif;
+  }
+
+  .title-block{
+	.title{
+		font-size: 3rem;
+	}
+}
+.subtitle.is-message{
+	border-left: 3px solid $text-light;
+	margin-top: 2.5rem !important;
+	margin-bottom: 2.5rem;
+	padding:0px;
+	padding-left: 1.5rem;
+	font-size:1.2rem;
+}
+
+.card,
+.box {
+  border: 1px solid $grey-lightest;
+  border-radius: $radius;
+}
+
+a.link,
+button.link {
+  &::after {
+    content: "➝";
+    padding-left: 0.25rem;
+    transition: 0.2s;
+  }
+  &:hover::after {
+    padding-left: 0.5rem;
+  }
 }

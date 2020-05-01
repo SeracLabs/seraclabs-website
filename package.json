@@ -1,5 +1,5 @@
 {
-  "name": "gulp-bulma",
+  "name": "gulp-bulma-sass",
   "version": "1.0.0",
   "description": "Gulp with Bulma Sass and BrowserSync",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "dev": "gulp serve",
     "build": "gulp build"
   },
-  "author": "dzinemon",
+  "author": "mobihack",
   "license": "ISC",
   "dependencies": {
     "bulma": "^0.8.2",
@@ -15,7 +15,9 @@
   },
   "devDependencies": {
     "browser-sync": "^2.26.7",
+    "del": "^5.1.0",
     "gulp": "^4.0.2",
+    "gulp-purgecss": "^2.1.2",
     "gulp-sass": "^4.1.0"
   }
 }
