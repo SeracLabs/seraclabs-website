@@ -61,4 +61,4 @@ gulp.task('server', gulp.series('gulpSass', function () {
 
 gulp.task('build', gulp.series('cleanDist', 'moveStatic', 'html', 'gulpSass', 'js'));
 gulp.task('serve', gulp.series('build', 'server'));
-gulp.task('production', gulp.series('build', 'purgecss')); // add minification and more
+gulp.task('prod', gulp.series('build', 'purgecss')); // add minification and more
