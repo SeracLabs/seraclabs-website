@@ -3743,7 +3743,7 @@ a.tag:hover {
 
 .card {
   background-color: white;
-  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
+  box-shadow: none;
   color: #4a4a4a;
   max-width: 100%;
   position: relative; }
@@ -7133,10 +7133,11 @@ body {
   padding-left: 1.5rem;
   font-size: 1.2rem; }
 
-.card,
-.box {
-  border: 1px solid #ededed;
+.card {
   border-radius: 0px; }
+
+.card > .card-image {
+  padding: 2.5rem; }
 
 a.link::after,
 button.link::after {
@@ -7147,3 +7148,57 @@ button.link::after {
 a.link:hover::after,
 button.link:hover::after {
   padding-left: 0.5rem; }
+
+.title-section {
+  margin-bottom: 4rem; }
+  .title-section .breadcrumb li:not(.is-active) a {
+    color: #3273dc !important; }
+
+.footer-block .footer-content .links-container > a {
+  margin-right: 0.75rem;
+  color: #7a7a7a !important;
+  border-bottom: 1px dotted #b5b5b5; }
+  .footer-block .footer-content .links-container > a:hover {
+    color: #4a4a4a !important;
+    border-bottom-color: #7a7a7a; }
+
+.footer-contact {
+  margin-top: 4rem;
+  margin-bottom: -6rem;
+  background-image: url("../images/backgrounds/email-pattern.png"); }
+
+.footer-block {
+  padding-top: 6rem; }
+  .footer-block.is-no-contact {
+    margin-top: 4rem;
+    padding-top: 2rem; }
+
+/* return to top */
+#return-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: whitesmoke;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  display: block;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: scale(0.5);
+  visibility: hidden; }
+  #return-to-top > i {
+    color: rgba(0, 0, 0, 0.75);
+    margin: 0;
+    padding: 1rem;
+    font-size: 1rem;
+    transition: all 0.3s ease; }
+  #return-to-top:hover {
+    color: black;
+    border-color: rgba(0, 0, 0, 0.15);
+    background: rgba(255, 255, 255, 0.85); }
+    #return-to-top:hover > i {
+      transform: translatey(-5px); }
+  #return-to-top.is-visible {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1); }

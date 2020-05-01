@@ -1,7 +1,7 @@
-@import "node_modules/bulma/sass/utilities/initial-variables";
+//@import "node_modules/bulma/sass/utilities/initial-variables";
 
 $radius: 0px;
-
+$card-shadow: none;
 $primary: #000080; // #5271ff + #ff1616
 @import "node_modules/bulma/bulma";
 
@@ -28,12 +28,13 @@ body {
 	font-size:1.2rem;
 }
 
-.card,
-.box {
-  border: 1px solid $grey-lightest;
+.card{
+  //border: 1px solid $grey-lightest;
   border-radius: $radius;
 }
-
+.card > .card-image{
+  padding: 2.5rem;
+}
 a.link,
 button.link {
   &::after {
@@ -43,5 +44,77 @@ button.link {
   }
   &:hover::after {
     padding-left: 0.5rem;
+  }
+}
+
+.title-section {
+  margin-bottom: 4rem;
+  .breadcrumb {
+    li:not(.is-active) a {
+      color: $link !important;
+    }
+  }
+}
+
+.footer-block .footer-content {
+  .links-container {
+    > a {
+      margin-right: 0.75rem;
+      color: $grey !important;
+      border-bottom: 1px dotted $grey-light;
+      &:hover {
+        color: $grey-dark !important;
+        border-bottom-color: $grey;
+      }
+    }
+  }
+}
+.footer-contact {
+  margin-top: 4rem;
+  margin-bottom: -6rem;
+  background-image: url("../images/backgrounds/email-pattern.png");
+}
+.footer-block {
+  padding-top: 6rem;
+  &.is-no-contact{
+    margin-top: 4rem;
+    padding-top: 2rem;
+  }
+}
+
+/* return to top */
+#return-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  
+  background: $light;
+  border: 1px solid rgba(black, 0.2);
+  display: block;
+  text-decoration: none;
+  
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: scale(0.5);
+  visibility: hidden;
+  > i {
+    color: rgba(black, 0.75);
+    margin: 0;
+    padding: 1rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  &:hover {
+    color: rgba(black, 1);
+    border-color: rgba(black, 0.15);
+    background: rgba(white, 0.85);
+    > i {
+      transform: translatey(-5px);
+    }
+  }
+  &.is-visible{
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
   }
 }
