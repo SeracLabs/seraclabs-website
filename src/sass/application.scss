@@ -29,7 +29,7 @@ body {
 }
 
 .card{
-  //border: 1px solid $grey-lightest;
+  border: 1px solid $grey-lightest;
   border-radius: $radius;
 }
 .card > .card-image{
@@ -46,7 +46,19 @@ button.link {
     padding-left: 0.5rem;
   }
 }
-
+.title-a{
+  display: inline-block;
+  color: $primary;
+  margin: 4rem 0;
+  &::after{
+    content: ' ';
+    margin-top: 0.75rem;
+    height: 3px;
+    width: 50%;
+    background: $primary;
+    display: block;
+  }
+}
 .title-section {
   margin-bottom: 4rem;
   .breadcrumb {
