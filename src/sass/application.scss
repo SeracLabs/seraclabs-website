@@ -20,12 +20,13 @@ body {
 	}
 }
 .subtitle.is-message{
-	border-left: 3px solid $text-light;
+	border-left: 0.25rem solid $primary;
 	margin-top: 2.5rem !important;
 	margin-bottom: 2.5rem;
 	padding:0px;
 	padding-left: 1.5rem;
-	font-size:1.2rem;
+  font-size:1.2rem;
+  color: $grey-dark;
 }
 
 .card{
