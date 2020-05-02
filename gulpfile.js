@@ -57,6 +57,7 @@ gulp.task('server', gulp.series('gulpSass', function () {
 
   gulp.watch('src/sass/*.s?ss', gulp.series('gulpSass'));
   gulp.watch('src/*.html').on('change', gulp.series('html', browserSync.reload));
+  gulp.watch('src/static/**/*', gulp.series('moveStatic'));
 }));
 
 gulp.task('build', gulp.series('cleanDist', 'moveStatic', 'html', 'gulpSass', 'js'));
