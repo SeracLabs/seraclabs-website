@@ -5,6 +5,7 @@ var purgecss = require('gulp-purgecss');
 var del = require('del');
 
 gulp.task('moveStatic', function () {
+  del.sync('dist/static');
   return gulp.src('src/static/**/*')
     .pipe(gulp.dest('dist/static'));
 });
@@ -43,7 +44,7 @@ gulp.task('purgecss', () => {
 function js () {
   return gulp
     .src(['src/js/*.js'])
-    .pipe(gulp.dest('dist/js'))
+    .pipe(gulp.dest('dist/static/js'))
     .pipe(browserSync.stream());
 }
 
@@ -56,6 +57,7 @@ gulp.task('server', gulp.series('gulpSass', function () {
   });
 
   gulp.watch('src/sass/*.s?ss', gulp.series('gulpSass'));
+  gulp.watch('src/js/*.js', gulp.series('js'));
   gulp.watch('src/*.html').on('change', gulp.series('html', browserSync.reload));
   gulp.watch('src/static/**/*', gulp.series('moveStatic'));
 }));

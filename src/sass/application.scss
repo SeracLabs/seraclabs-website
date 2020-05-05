@@ -6,34 +6,34 @@ $primary: #000080; // #5271ff + #ff1616
 @import "node_modules/bulma/bulma";
 
 body {
-	margin: 0;
-	font-family: "Open Sans", sans-serif;
-  }
-  .title,
-  .subtitle {
-	font-family: "Raleway", sans-serif;
-  }
-
-  .title-block{
-	.title{
-		font-size: 3rem;
-	}
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
 }
-.subtitle.is-message{
-	border-left: 0.25rem solid $primary;
-	margin-top: 2.5rem !important;
-	margin-bottom: 2.5rem;
-	padding:0px;
-	padding-left: 1.5rem;
-  font-size:1.2rem;
+.title,
+.subtitle {
+  font-family: "Raleway", sans-serif;
+}
+
+.title-block {
+  .title {
+    font-size: 3rem;
+  }
+}
+.subtitle.is-message {
+  border-left: 0.25rem solid $primary;
+  margin-top: 2.5rem !important;
+  margin-bottom: 2.5rem;
+  padding: 0px;
+  padding-left: 1.5rem;
+  font-size: 1.2rem;
   color: $grey-dark;
 }
 
-.card{
+.card {
   border: 1px solid $grey-lightest;
   border-radius: $radius;
 }
-.card > .card-image{
+.card > .card-image {
   padding: 2.5rem;
 }
 a.link,
@@ -47,12 +47,12 @@ button.link {
     padding-left: 0.5rem;
   }
 }
-.title-a{
+.title-a {
   display: inline-block;
   color: $primary;
   margin: 4rem 0;
-  &::after{
-    content: ' ';
+  &::after {
+    content: " ";
     margin-top: 0.75rem;
     height: 3px;
     width: 50%;
@@ -89,7 +89,7 @@ button.link {
 }
 .footer-block {
   padding-top: 6rem;
-  &.is-no-contact{
+  &.is-no-contact {
     margin-top: 4rem;
     padding-top: 2rem;
   }
@@ -100,12 +100,12 @@ button.link {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  
+
   background: $light;
   border: 1px solid rgba(black, 0.2);
   display: block;
   text-decoration: none;
-  
+
   transition: all 0.3s ease;
   opacity: 0;
   transform: scale(0.5);
@@ -125,9 +125,42 @@ button.link {
       transform: translatey(-5px);
     }
   }
-  &.is-visible{
+  &.is-visible {
     visibility: visible;
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+a,
+button {
+  &:hover {
+    cursor: none;
+  }
+}
+#cursor {
+  position: fixed;
+  user-select: none;
+  z-index: 10000;
+  > span {
+    box-sizing: border-box;
+    position: relative;
+    
+    display: inline-block;
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 50%;
+    border-top-left-radius: 0;
+
+    background-color: rgba($primary,0.35);
+    border: transparent 2px solid;
+    transition: 0.1s;
+
+  }
+  &.is-hovered {
+    > span {
+      background-color: $white;
+      border-color: $grey-light;
+    }
   }
 }
