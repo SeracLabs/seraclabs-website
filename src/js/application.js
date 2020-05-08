@@ -12,8 +12,13 @@ var CustomCursor = {
   },
   updateCursor: function () {
     document.documentElement.addEventListener('mousemove', this._cursorEvent);
+    document.documentElement.addEventListener('mouseout', this._cursorHide);
+  },
+  _cursorHide: function (e) {
+    CustomCursor.cursorElement.style.opacity = '0';
   },
   _cursorEvent: function (e) {
+    CustomCursor.cursorElement.style.opacity = '1';
     if (CustomCursor._checkHover(e.target)) {
       CustomCursor.cursorElement.classList.add('is-hovered');
     } else {
@@ -28,8 +33,8 @@ var CustomCursor = {
     const tag = ['A', 'BUTTON'];
     for (var i = 0; i < tag.length; i++) {
       if (elem.nodeName === tag[i] ||
-        elem.parentElement.nodeName === tag[i] ||
-        elem.parentElement.parentElement.nodeName === tag[i]) {
+        (elem.parentElement !== null && elem.parentElement.nodeName === tag[i]) ||
+        (elem.parentElement.parentElement !== null && elem.parentElement.parentElement.nodeName === tag[i])) {
         return true;
       }
     }

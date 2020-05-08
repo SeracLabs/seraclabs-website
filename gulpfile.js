@@ -1,8 +1,20 @@
-var gulp = require('gulp');
-var browserSync = require('browser-sync').create();
-var sass = require('gulp-sass');
-var purgecss = require('gulp-purgecss');
-var del = require('del');
+const gulp = require('gulp');
+const browserSync = require('browser-sync').create();
+const sass = require('gulp-sass');
+const purgecss = require('gulp-purgecss');
+const del = require('del');
+const liquid = require('@tuanpham-dev/gulp-liquidjs');
+
+gulp.task('liquid', () => {
+  return gulp.src('./src/**/*.html')
+    .pipe(liquid({
+      engine: {
+        root: ['./src/_templates', './src/_snippets'],
+        extname: '.html'
+      }
+    }))
+    .pipe(gulp.dest('./dist'))
+});
 
 gulp.task('moveStatic', function () {
   del.sync('dist/static');
@@ -13,11 +25,6 @@ gulp.task('moveStatic', function () {
 gulp.task('cleanDist', function (cb) {
   del.sync('dist');
   cb();
-});
-
-gulp.task('html', function () {
-  return gulp.src('src/**/*.html')
-    .pipe(gulp.dest('dist'));
 });
 
 // Compile sass into CSS & auto-inject into browsers
@@ -58,10 +65,10 @@ gulp.task('server', gulp.series('gulpSass', function () {
 
   gulp.watch('src/sass/*.s?ss', gulp.series('gulpSass'));
   gulp.watch('src/js/*.js', gulp.series('js'));
-  gulp.watch('src/*.html').on('change', gulp.series('html', browserSync.reload));
+  gulp.watch('src/**/*.html').on('change', gulp.series('liquid', browserSync.reload));
   gulp.watch('src/static/**/*', gulp.series('moveStatic'));
 }));
 
-gulp.task('build', gulp.series('cleanDist', 'moveStatic', 'html', 'gulpSass', 'js'));
+gulp.task('build', gulp.series('cleanDist', 'moveStatic', 'liquid', 'gulpSass', 'js'));
 gulp.task('serve', gulp.series('build', 'server'));
 gulp.task('prod', gulp.series('build', 'purgecss')); // add minification and more

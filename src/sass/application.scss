@@ -142,6 +142,7 @@ button {
   position: fixed;
   user-select: none;
   z-index: 10000;
+  transition: opacity 0.1s;
   > span {
     box-sizing: border-box;
     position: relative;
